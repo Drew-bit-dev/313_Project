@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JumpBoxComponent } from './jump-box/jump-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JumpBoxComponent
   ],
   imports: [
     BrowserModule,
