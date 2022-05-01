@@ -1,0 +1,7 @@
+<div><div class="scrollable">
+    <div *ngFor="let item of items">
+        <button [class.selected]="item === selectedItem" type="button" (click)="onSelect(item)">
+            {{item.listText}}
+        </button>
+    </div>
+</div></div>
