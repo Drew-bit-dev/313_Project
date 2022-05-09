@@ -14,7 +14,7 @@ export class JumpBoxComponent implements OnInit {
 
   getJump(){
     //service path
-    //intended to be data binded to the box
+    //intended to be the data binded to the box
     //as this will be just taking the value from the servoce
   }
 
