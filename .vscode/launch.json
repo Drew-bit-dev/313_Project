@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "msedge",
             "request": "launch",
             "name": "Open bioPage.html",
-            "file": "c:\\Users\\Owner\\Desktop\\Internet Explorer\\Spring 2022\\csci 313\\project\\313_Project\\dndCharacterSheet\\src\\app\\bioPage.html"
+            "file": "c:\\Users\\Owner\\Desktop\\Internet Explorer\\Spring 2022\\csci 313\\project\\313_Project\\dndCharacterSheet\\src\\index.html"
         }
     ]
 }
