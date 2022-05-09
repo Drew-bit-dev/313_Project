@@ -1,10 +1,4 @@
-/*
-the idea is that each feature stores objects,
-such as the proficiency object,
-notating what it adds to the character when it is added.
-and the service will add or AND them as appropriate.
-*/
-export interface Proficiency{
+export type Proficiency = {
 	strength: boolean;
 	athletics: boolean;
 	dexterity: boolean;
@@ -31,7 +25,33 @@ export interface Proficiency{
 	persuasion: boolean;
 }
 
-export interface Expertise{
+export type skillsEnum =
+	'strength'
+	| 'athletics'
+	| 'dexterity'
+	| 'acrobatics'
+	| 'sleightOfHand'
+	| 'stealth'
+	| 'constitution'
+	| 'intelligence'
+	| 'arcana'
+	| 'history'
+	| 'investigation'
+	| 'nature'
+	| 'religion'
+	| 'wisdom'
+	| 'animalHandling'
+	| 'insight'
+	| 'medicine'
+	| 'perception'
+	| 'survival'
+	| 'charisma'
+	| 'deception'
+	| 'intimidation'
+	| 'performance'
+	| 'persuasion'
+
+export type Expertise = {
 	thievesTools: boolean;
 	athletics: boolean;
 	acrobatics: boolean;
@@ -53,7 +73,7 @@ export interface Expertise{
 	persuasion: boolean;
 }
 
-export interface BaseStats{
+export type BaseStats = {
 	proficiencyBonus: number;
 	maxHP: number;
 	speed: number;
@@ -69,22 +89,31 @@ export interface BaseStats{
 	charisma: number;
 }
 
-export interface DeathSaves{
+export type statsEnum = 
+	'strength'
+	| 'dexterity'
+	| 'constitution'
+	| 'intelligence'
+	| 'wisdom'
+	| 'charisma';
+
+export type DeathSaves = {
 	succsesses: number;
 	failures: number;
 }
 
-export interface PermanantStats{
+export type PermanantStats = {
 	level: number;
 	characterName: string;
 	playerName: string;
+	alignmentGoodEvil: GoodEvil;
+	alignmentLawfulChaoitc: LawfulChaotic;
+	class: Class;
 	//waiting on relevant types for these.
-	//alignment
-	//class
 	//background
 }
 
-export interface ToolProficiencies{
+export type ToolProficiencies = {
 	alchemistsSupplies: boolean;
 	brewersSupplies: boolean;
 	calligraphersSupplies: boolean;
@@ -119,7 +148,7 @@ export interface ToolProficiencies{
 	vehicles: boolean;
 }
 
-export interface Languages{
+export type Languages = {
 	common: boolean;
 	Dwarvish: boolean;
 	Elvish: boolean;
@@ -138,7 +167,7 @@ export interface Languages{
 	Undercommon: boolean;
 }
 
-export interface ephemerialStats{
+export type EphemerialStats = {
 	currentHP: number;
 	tempHP: number;
 	inspiration: number;
@@ -147,4 +176,53 @@ export interface ephemerialStats{
 	hitDiceD10: number;
 	hitDiceD12: number;
 	initiative: number;
+	deathSaves: DeathSaves;
+}
+
+export type GoodEvil =
+	'Good'
+	| 'Neutral'
+	| 'Evil';
+
+export type LawfulChaotic = 
+	'Lawful'
+	| 'Neutral'
+	| 'Chaotic';
+
+export type Class = 'Rouge'
+
+export type Archetype =
+	'Theif'
+	| 'Assasin'
+
+export interface Character {
+	proficiencies: Proficiency,
+	expertise: Expertise,
+	baseStats: baseStats,
+	deathSaves: DeathSaves,
+	permanantStats: permanantStats,
+	toolProficiencies: ToolProficiencies,
+	languages: Languages,
+	ephemerialStats: EphemerialStats,
+}
+
+//sometimes, there will be no choice associated with aquiring a trait, like when aquiring many class features. Other times, there will be several, such as which proficiencies to take, and what stats to increase.
+export interface Feature {
+	name: string,
+	description: string,
+	onGainFeature: ()=>void
+}
+
+export interface InitalProficiencies {
+	firstProficiency: skillsEnum,
+	secondProficiency: skillsEnum,
+	thirdProficiency: skillsEnum,
+	fourthProficiency: skillsEnum
+	gainInitalProficiencies: (firstProficiency: skillsEnum, secondProficiency: skillsEnum, thirdProficiency: skillsEnum, fourthProficiency: skillsEnum)=>void
+}
+
+export interface gainAbilityIncrease {
+	firstStat: statsEnum,
+	secondStat: statsEnum
+	gainAbilityIncrease: (firstStat: statsEnum, secondStat: statsEnum)=>void
 }
