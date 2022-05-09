@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --c-bg1: #002;
+    --c-bg2: #224;
+    --c-bg3: #336;
+    --c-fg1: #FFE;
+    --c-fg2: #EED;
+    --c-fg3: #CCB;
+}
