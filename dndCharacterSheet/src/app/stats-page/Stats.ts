@@ -21,4 +21,7 @@ export interface Stats {
     speed: number;
 
     proficiency: number;
+
+    hitpoints: number;
+    temphitpoints: number;
 }

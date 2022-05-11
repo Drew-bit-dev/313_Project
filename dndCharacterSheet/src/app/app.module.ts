@@ -15,6 +15,7 @@ import { InitiativeComponent } from './stats-page/initiative/initiative.componen
 import { SpeedComponent } from './stats-page/speed/speed.component';
 import { StatsPageComponent } from './stats-page/stats-page.component';
 import { ProficiencyComponent } from './stats-page/proficiency/proficiency.component';
+import { HitpointsComponent } from './stats-page/hitpoints/hitpoints.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProficiencyComponent } from './stats-page/proficiency/proficiency.compo
     InitiativeComponent,
     SpeedComponent,
     StatsPageComponent,
-    ProficiencyComponent
+    ProficiencyComponent,
+    HitpointsComponent
   ],
   imports: [
     BrowserModule,

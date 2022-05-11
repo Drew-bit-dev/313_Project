@@ -1,0 +1,14 @@
+.Bubble {
+    margin: 10px;
+    text-align: center;
+    border: 2px solid crimson;
+    margin-bottom: 100px;
+    padding: 1em;
+    float: right;
+}
+
+div{
+    margin-bottom: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
