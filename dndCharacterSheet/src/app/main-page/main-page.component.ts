@@ -32,6 +32,8 @@ export class MainPageComponent implements OnInit {
   selectedCharacter?: Item|null;
   popupText:string = 'Enter %ERROR% to continue';
 
+  newCharacter():void{ this.confirmCharacter.emit('new'); }
+
   selectCharacter(char: Item|null): void {
     this.selectedCharacter=char;
     if(this.selectedCharacter){

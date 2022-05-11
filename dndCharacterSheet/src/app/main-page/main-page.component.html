@@ -1,2 +1,3 @@
 <app-listbox [itemList]="characters" (onSelect)="selectCharacter($event)"></app-listbox>
+<button (click)="newCharacter()">Create New Character</button>
 <app-popup *ngIf="selectedCharacter" (cancel)="clearSelection()" (send)="attempt($event)" [display]="popupText"></app-popup>
