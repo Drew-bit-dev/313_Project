@@ -13,6 +13,12 @@ import { CharacterViewComponent } from './character-view/character-view.componen
 import { BioPageComponent } from './bio-page/bio-page.component';
 import { JumpBoxComponent } from './jump-box/jump-box.component';
 import { ItemSelectorComponent } from './item-selector/item-selector.component';
+import { StatsBubbleComponent } from './stats-page/stats-bubble/stats-bubble.component';
+import { InitiativeComponent } from './stats-page/initiative/initiative.component';
+import { SpeedComponent } from './stats-page/speed/speed.component';
+import { StatsPageComponent } from './stats-page/stats-page.component';
+import { ProficiencyComponent } from './stats-page/proficiency/proficiency.component';
+import { HitpointsComponent } from './stats-page/hitpoints/hitpoints.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { ItemSelectorComponent } from './item-selector/item-selector.component';
     JumpBoxComponent,
     HeaderComponent,
     BioPageComponent,
-    ItemSelectorComponent
+    ItemSelectorComponent,
+    StatsBubbleComponent,
+    InitiativeComponent,
+    SpeedComponent,
+    StatsPageComponent,
+    ProficiencyComponent,
+    HitpointsComponent
   ],
   imports: [
     BrowserModule,

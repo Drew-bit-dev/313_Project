@@ -1,0 +1,14 @@
+.Bubble {
+    margin: 10px;
+    text-align: center;
+    border: 3px outset lightcoral;
+    margin-bottom: 100px;
+    padding: 1em;
+    float: left;
+    background-color: rgb(246, 165, 165);
+}
+
+div{
+    margin-bottom: 50px;
+    margin-left: 40px;
+}
