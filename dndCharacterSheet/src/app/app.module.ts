@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JumpBoxComponent } from './jump-box/jump-box.component';
 import { HeaderComponent } from './header/header.component';
+import { BioPageComponent } from './bio-page/bio-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JumpBoxComponent,
-    HeaderComponent
+    HeaderComponent,
+    BioPageComponent
   ],
   imports: [
     BrowserModule,
