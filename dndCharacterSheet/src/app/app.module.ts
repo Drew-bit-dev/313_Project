@@ -10,9 +10,10 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
 import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
-import { StatsBubbleComponent } from './stats-bubble/stats-bubble.component';
-import { InitiativeComponent } from './initiative/initiative.component';
-import { SpeedComponent } from './speed/speed.component';
+import { StatsBubbleComponent } from './stats-page/stats-bubble/stats-bubble.component';
+import { InitiativeComponent } from './stats-page/initiative/initiative.component';
+import { SpeedComponent } from './stats-page/speed/speed.component';
+import { StatsPageComponent } from './stats-page/stats-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SpeedComponent } from './speed/speed.component';
     CharacterViewComponent,
     StatsBubbleComponent,
     InitiativeComponent,
-    SpeedComponent
+    SpeedComponent,
+    StatsPageComponent
   ],
   imports: [
     BrowserModule,

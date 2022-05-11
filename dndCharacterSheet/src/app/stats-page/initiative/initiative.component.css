@@ -1,12 +1,13 @@
 .Bubble {
     margin: 10px;
     text-align: center;
-    border: 1px solid #a9a9a9;
+    border: 1px solid lightcoral;
     margin-bottom: 100px;
     padding: 1em;
+    float: left;
 }
 
-li{
+div{
     margin-bottom: 50px;
-    list-style: none;
+    margin-left: 40px;
 }
