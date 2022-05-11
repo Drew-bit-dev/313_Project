@@ -11,6 +11,7 @@ import { PlayerCreationComponent } from './player-creation/player-creation.compo
 import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
 import { BioPageComponent } from './bio-page/bio-page.component';
+import { JumpBoxComponent } from './jump-box/jump-box.component';
 
 @NgModule({
   declarations: [
