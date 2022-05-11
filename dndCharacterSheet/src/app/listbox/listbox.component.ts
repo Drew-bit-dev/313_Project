@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../Item';
 @Component({
   selector: 'app-listbox',
@@ -6,7 +6,8 @@ import { Item } from '../Item';
   styleUrls: ['./listbox.component.css']
 })
 export class ListboxComponent implements OnInit {
-  selectedItem?: Item | null;
+  @Output() onSelect = new EventEmitter<Item|null>();
+  @Input() selectedItem?: Item | null;
   @Input() itemList?: Item[];
 
   constructor() { }
@@ -14,7 +15,8 @@ export class ListboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(item: Item|null){
+  select(item: Item|null){
     this.selectedItem=item;
+    this.onSelect.emit(item);
   }
 }
