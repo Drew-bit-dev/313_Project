@@ -6,7 +6,7 @@
         left: 50%;
         transform: translate(-50%, -50%);">
             <button (click)="clickOff()" style="top:0px;right:0px;float:right;color:white;background-color: red;">X</button><br>
-            <span style="white-space: pre;">{{display}}</span><br>
+            <span style="white-space: pre;"><p>{{display}}</p></span><br>
             <input [(ngModel)]="textbox" style="width:80%;margin:auto;" (keyup.enter)="enter()" (keyup.escape)="clickOff()"/><button (click)="enter()" style="top:0px;right:0px;float:right;">Enter</button>
         </div>
     </div>

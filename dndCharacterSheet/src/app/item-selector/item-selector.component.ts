@@ -31,20 +31,21 @@ export class ItemSelectorComponent implements OnInit {
   updateOptions(){
     this.currentOptions="Enter one from: ";
     for(let i = 0; this.options && i < this.options.length; i++){
-      if(this.selection && this.options && this.options[i] !in this.selection){
+      if(this.selection && this.options && !this.selection.includes(this.options[i])){
         this.currentOptions+=this.options[i]+", ";
       }
     }
-    this.currentOptions=this.currentOptions.substring(this.currentOptions.length-2);
+    this.currentOptions=this.currentOptions.substring(0,this.currentOptions.length-2);
   }
 
   select(index:number){
     this.selectedIndex=index;
+    this.updateOptions();
   }
 
   onChange(str:string): void {
-    if((this.options && str !in this.options) || (this.selection && str in this.selection)){
-      this.currentOptions+="\nYou selected an invalid option, this may be because you already selected it in a different selector, because of a typo, or because it isn't an available option."
+    if((this.options && !this.options.includes(str)) || (this.selection && this.selection.includes(str))){
+      this.currentOptions+="\nYou selected an invalid option, this may be because you already selected it, because of a typo, or because it isn't an available option."
     } else if(this.selection) {
       this.selection[this.selectedIndex]=str
       this.selectedIndex=-1;
