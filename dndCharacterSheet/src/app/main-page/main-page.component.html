@@ -1,2 +1,2 @@
 <app-listbox [itemList]="characters" (onSelect)="selectCharacter($event)"></app-listbox>
-<app-popup *ngIf="selectedCharacter" (cancel)="clearSelection()" (send)="congrats($event)" [display]="'Enter '+selectedCharacter.listText+' to continue'"></app-popup>
+<app-popup *ngIf="selectedCharacter" (cancel)="clearSelection()" (send)="attempt($event)" [display]="popupText"></app-popup>

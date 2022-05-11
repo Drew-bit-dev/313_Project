@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from '../Item';
 
 @Component({
@@ -7,6 +7,7 @@ import { Item } from '../Item';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
+  @Output() confirmCharacter = new EventEmitter<string>();
 
   constructor() { }
 
@@ -29,21 +30,30 @@ export class MainPageComponent implements OnInit {
   ]
 
   selectedCharacter?: Item|null;
+  popupText:string = 'Enter %ERROR% to continue';
 
   selectCharacter(char: Item|null): void {
     this.selectedCharacter=char;
-    if(char){
-
+    if(this.selectedCharacter){
+      this.popupText = 'Enter '+this.selectedCharacter.listText+' to continue';
+    } else {
+      this.popupText = 'Enter %ERROR% to continue';
     }
   }
 
-  congrats(str:string){
-    console.log(str);
+  attempt(str:string){
+    if(this.selectedCharacter){
+      if(str==this.selectedCharacter.listText){
+        this.confirmCharacter.emit(this.selectedCharacter.listText);
+      } else {
+        this.popupText = "Incorrect password \n"+this.popupText
+      }
+    } else {
+      this.popupText = "how did you get a popup without selecting something?"
+    }
   }
 
-  clearSelection(): void {
-    this.selectedCharacter=null;
-  }
+  clearSelection(): void { this.selectedCharacter=null; }
 
   ngOnInit(): void {
   }
