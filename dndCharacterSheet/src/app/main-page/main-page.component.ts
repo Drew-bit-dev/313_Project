@@ -28,6 +28,14 @@ export class MainPageComponent implements OnInit {
     }
   ]
 
+  selectCharacter(char: Item): void {
+
+  }
+
+  clearSelection(): void {
+
+  }
+
   ngOnInit(): void {
   }
 
