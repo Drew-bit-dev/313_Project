@@ -9,6 +9,9 @@ import { Item } from '../Item';
 export class PlayerCreationComponent implements OnInit {
   selectedTab: string = "Class";
   @Output() create = new EventEmitter<string>();
+  align?:string;
+
+  setAlign(str:string){this.align=str}
 
   
   

@@ -12,4 +12,5 @@
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Backgrounds" [selectedItem]="selectedBackground" (onSelect)="selectBackground($event)"></app-listbox></div>
     <div>Selected Background Details: {{selectedBackground}}</div>
 </div>
-<button *ngIf="selectedClass && selectedBackground && selectedRace && name" (click)="makeChar()">Next</button>
+Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
+<button *ngIf="selectedClass && selectedBackground && selectedRace && name && align && align!='Click to Select'" (click)="makeChar()">Next</button>
