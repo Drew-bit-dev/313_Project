@@ -10,6 +10,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
 import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
+import { StatsBubbleComponent } from './stats-bubble/stats-bubble.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CharacterViewComponent } from './character-view/character-view.componen
     MainPageComponent,
     PlayerCreationComponent,
     PopupComponent,
-    CharacterViewComponent
+    CharacterViewComponent,
+    StatsBubbleComponent
   ],
   imports: [
     BrowserModule,
