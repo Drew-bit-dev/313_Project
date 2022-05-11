@@ -7,6 +7,7 @@ export const STATS: Stats = {
     intelligence: 15, intelligencemod: 2,
     wisdom: 10, wisdommod: 0,
     charisma: 10, charismamod: 0,
-    initiative: 17, speed: 30
+    initiative: 17, speed: 30,
+    proficiency: 2
 };
 

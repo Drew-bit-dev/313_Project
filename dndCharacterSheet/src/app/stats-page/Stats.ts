@@ -19,4 +19,6 @@ export interface Stats {
 
     initiative: number;
     speed: number;
+
+    proficiency: number;
 }

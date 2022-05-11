@@ -14,6 +14,7 @@ import { StatsBubbleComponent } from './stats-page/stats-bubble/stats-bubble.com
 import { InitiativeComponent } from './stats-page/initiative/initiative.component';
 import { SpeedComponent } from './stats-page/speed/speed.component';
 import { StatsPageComponent } from './stats-page/stats-page.component';
+import { ProficiencyComponent } from './stats-page/proficiency/proficiency.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { StatsPageComponent } from './stats-page/stats-page.component';
     StatsBubbleComponent,
     InitiativeComponent,
     SpeedComponent,
-    StatsPageComponent
+    StatsPageComponent,
+    ProficiencyComponent
   ],
   imports: [
     BrowserModule,
