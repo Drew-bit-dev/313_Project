@@ -1,0 +1,12 @@
+.Bubble {
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #a9a9a9;
+    margin-bottom: 100px;
+    padding: 1em;
+}
+
+li{
+    margin-bottom: 50px;
+    list-style: none;
+}
