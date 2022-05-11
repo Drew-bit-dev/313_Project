@@ -10,6 +10,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
 import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
+import { BioPageComponent } from './bio-page/bio-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { CharacterViewComponent } from './character-view/character-view.componen
     MainPageComponent,
     PlayerCreationComponent,
     PopupComponent,
-    CharacterViewComponent
+    CharacterViewComponent,
+    JumpBoxComponent,
+    HeaderComponent,
+    BioPageComponent
   ],
   imports: [
     BrowserModule,
