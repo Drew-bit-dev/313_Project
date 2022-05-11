@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../Item';
 
 @Component({
@@ -8,6 +8,7 @@ import { Item } from '../Item';
 })
 export class PlayerCreationComponent implements OnInit {
   selectedTab: string = "Class";
+  @Output() create = new EventEmitter<string>();
 
   
   
@@ -52,7 +53,8 @@ export class PlayerCreationComponent implements OnInit {
     this.selectedTab=tab;
   }
   makeChar(){
-    //TODO
+    //TODO update DB
+    this.create.emit(this.name);
   }
 
 }

@@ -3,9 +3,9 @@
 </div>
 <div *ngIf="selectedCharacter">
     <div *ngIf="selectedCharacter=='new'">
-        <app-player-creation></app-player-creation> <!-- When the "Create New Character" option has been selected, show the player creation screen. Remember to set selectedCharacter at end of creation. -->
+        <app-player-creation (create)="selectCharacter($event)"></app-player-creation> <!-- When the "Create New Character" option has been selected, show the player creation screen. Remember to set selectedCharacter at end of creation. -->
     </div>
     <div *ngIf="selectedCharacter!='new'">
-        You selected {{selectedCharacter}}! <!-- When a character has been selected and security has been passed, ... well, the character will be shown ig, but not yet. -->
+        <app-character-view [character]="selectedCharacter"></app-character-view> <!-- When a character has been selected and security has been passed, open that character's page. -->
     </div>
 </div>

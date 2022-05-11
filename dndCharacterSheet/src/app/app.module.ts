@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
 import { PopupComponent } from './popup/popup.component';
+import { CharacterViewComponent } from './character-view/character-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PopupComponent } from './popup/popup.component';
     HeaderComponent,
     MainPageComponent,
     PlayerCreationComponent,
-    PopupComponent
+    PopupComponent,
+    CharacterViewComponent
   ],
   imports: [
     BrowserModule,
