@@ -12,7 +12,7 @@ export class ItemSelectorComponent implements OnInit {
   @Input() options?:string[];
   currentOptions?:string;
 
-  selection?:string[];
+  @Input() selection?:string[];
   indices?:number[];
   selectedIndex=-1
 
