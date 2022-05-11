@@ -12,6 +12,7 @@ import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
 import { StatsBubbleComponent } from './stats-bubble/stats-bubble.component';
 import { InitiativeComponent } from './initiative/initiative.component';
+import { SpeedComponent } from './speed/speed.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InitiativeComponent } from './initiative/initiative.component';
     PopupComponent,
     CharacterViewComponent,
     StatsBubbleComponent,
-    InitiativeComponent
+    InitiativeComponent,
+    SpeedComponent
   ],
   imports: [
     BrowserModule,
