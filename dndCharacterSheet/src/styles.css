@@ -1,8 +1,10 @@
 :root {
     --c-bg1: #002;
     --c-bg2: #224;
+    --c-bg2t: #2248;
     --c-bg3: #336;
     --c-fg1: #FFE;
     --c-fg2: #EED;
+    --c-fg2t: #eed8;
     --c-fg3: #CCB;
 }

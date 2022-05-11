@@ -8,6 +8,7 @@ import { ListboxComponent } from './listbox/listbox.component';
 import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PlayerCreationComponent } from './player-creation/player-creation.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PlayerCreationComponent } from './player-creation/player-creation.compo
     ListboxComponent,
     HeaderComponent,
     MainPageComponent,
-    PlayerCreationComponent
+    PlayerCreationComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
