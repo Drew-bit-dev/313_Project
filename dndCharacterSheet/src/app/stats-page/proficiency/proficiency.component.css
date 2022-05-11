@@ -1,10 +1,11 @@
 .Bubble {
     margin: 10px;
     text-align: center;
-    border: 2px solid cadetblue;
+    border: 3px outset cadetblue;
     margin-bottom: 100px;
     padding: 1em;
     float: left;
+    background-color: rgb(129, 222, 225);
 }
 
 div{
