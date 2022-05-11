@@ -11,6 +11,7 @@ import { PlayerCreationComponent } from './player-creation/player-creation.compo
 import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
 import { StatsBubbleComponent } from './stats-bubble/stats-bubble.component';
+import { InitiativeComponent } from './initiative/initiative.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { StatsBubbleComponent } from './stats-bubble/stats-bubble.component';
     PlayerCreationComponent,
     PopupComponent,
     CharacterViewComponent,
-    StatsBubbleComponent
+    StatsBubbleComponent,
+    InitiativeComponent
   ],
   imports: [
     BrowserModule,

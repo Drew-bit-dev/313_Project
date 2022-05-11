@@ -1,4 +1,12 @@
 import { Stats } from "./Stats";
 
-export const STATS: Stats = {strength: 20, dexterity: 20, constitution: 15, intelligence: 15, wisdom: 10, charisma: 10};
-export const STATSMOD: Stats = {strength: 5, dexterity: 5, constitution: 2, intelligence: 2, wisdom: 0, charisma: 0};
+export const STATS: Stats = {
+    strength: 20, strengthmod: 5,
+    dexterity: 20, dexteritymod: 5,
+    constitution: 15, constitutionmod: 2,
+    intelligence: 15, intelligencemod: 2,
+    wisdom: 10, wisdommod: 0,
+    charisma: 10, charismamod: 0,
+    initiative: 17, speed: 30
+};
+

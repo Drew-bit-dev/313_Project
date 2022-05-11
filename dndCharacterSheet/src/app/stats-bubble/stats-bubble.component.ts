@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { STATS } from '../Mock-Stats';
-import { STATSMOD } from '../Mock-Stats';
 
 @Component({
   selector: 'app-stats-bubble',
@@ -11,7 +10,6 @@ export class StatsBubbleComponent implements OnInit {
 
   constructor() { }
   stats = STATS;
-  statsmod = STATSMOD;
   ngOnInit(): void {
   }
 
