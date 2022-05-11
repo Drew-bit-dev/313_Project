@@ -31,11 +31,18 @@ export class MainPageComponent implements OnInit {
   selectedCharacter?: Item|null;
 
   selectCharacter(char: Item|null): void {
+    this.selectedCharacter=char;
+    if(char){
 
+    }
+  }
+
+  congrats(str:string){
+    console.log(str);
   }
 
   clearSelection(): void {
-
+    this.selectedCharacter=null;
   }
 
   ngOnInit(): void {
