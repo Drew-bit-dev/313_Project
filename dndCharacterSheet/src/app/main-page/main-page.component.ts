@@ -28,7 +28,9 @@ export class MainPageComponent implements OnInit {
     }
   ]
 
-  selectCharacter(char: Item): void {
+  selectedCharacter?: Item|null;
+
+  selectCharacter(char: Item|null): void {
 
   }
 
