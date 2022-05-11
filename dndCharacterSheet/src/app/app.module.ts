@@ -12,6 +12,7 @@ import { PopupComponent } from './popup/popup.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
 import { BioPageComponent } from './bio-page/bio-page.component';
 import { JumpBoxComponent } from './jump-box/jump-box.component';
+import { ItemSelectorComponent } from './item-selector/item-selector.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JumpBoxComponent } from './jump-box/jump-box.component';
     CharacterViewComponent,
     JumpBoxComponent,
     HeaderComponent,
-    BioPageComponent
+    BioPageComponent,
+    ItemSelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+<div *ngIf="selection">
+    <span *ngFor="let i of indices">
+        <app-popup *ngIf="i==selectedIndex" [display]="currentOptions" (send)="onChange($event)" (cancel)="select(-1)"></app-popup>
+        <a (click)="select(i)">{{selection[i]}}</a><br>
+    </span>
+</div>

@@ -2,6 +2,7 @@
 <div *ngIf="selectedTab=='Class'">
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Classes" [selectedItem]="selectedClass" (onSelect)="selectClass($event)"></app-listbox></div>
     <div>Selected Class Details: {{selectedClass}}</div>
+    <app-item-selector [amount]=4 [options]="['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation', 'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand', 'Stealth']"></app-item-selector>
 </div>
 <div *ngIf="selectedTab=='Race'">
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Races" [selectedItem]="selectedRace" (onSelect)="selectRace($event)"></app-listbox></div>
