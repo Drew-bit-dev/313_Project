@@ -10,7 +10,7 @@ import * as types from '../types';
 })
 export class PlayerCreationComponent implements OnInit {
   selectedTab: string = "Class";
-  @Output() create = new EventEmitter<string>();
+  @Output() create = new EventEmitter<StatsService>();
   align?:string;
 
   setAlign(str:string){this.align=str;this.checkReady();}
@@ -46,6 +46,7 @@ export class PlayerCreationComponent implements OnInit {
   selectedRace?: Item|null;
   selectedBackground?: Item|null;
   @Input() name?: string;
+  @Input() playerName?: string;
   readyToMake:boolean=false;
 
   checkReady(){
@@ -73,9 +74,10 @@ export class PlayerCreationComponent implements OnInit {
     //TODO update DB
     let char = new StatsService();
     if(this.name)char.character.permanantStats.characterName=this.name;
+    if(this.playerName)char.character.permanantStats.playerName=this.playerName;
     // char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Good")>-1?types.GoodEvil.Good:this.align.indexOf("Evil")>-1?types.GoodEvil.Evil:types.GoodEvil.Neutral;
     // char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Chaotic")>-1?types.LawfulChaotic.Chaotic:this.align.indexOf("Lawful")>-1?types.LawfulChaotic.Lawful:types.LawfulChaotic.Neutral;
-    this.create.emit(this.name);
+    this.create.emit(char);
   }
 
 }

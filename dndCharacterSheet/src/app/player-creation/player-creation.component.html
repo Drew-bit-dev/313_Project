@@ -1,4 +1,4 @@
-<button onclick="history.go(0)">Home</button>
+<input [(ngModel)]="playerName" placeholder="Player Name..." />
 <input [(ngModel)]="name" placeholder="Character Name..." /> <div><button (click)="selectTab('Class')">Class</button><button (click)="selectTab('Race')">Race</button><button (click)="selectTab('Background')">Background</button></div>
 <div *ngIf="selectedTab=='Class'">
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Classes" [selectedItem]="selectedClass" (onSelect)="selectClass($event)"></app-listbox></div>
@@ -18,5 +18,6 @@
 </div>
 <div>
     Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
-<button *ngIf="readyToMake && name" (click)="makeChar()">Next</button>
+<button *ngIf="readyToMake && name && playerName && playerName!='test'" (click)="makeChar()">Next</button>
+<p *ngIf="playerName && playerName=='test'">playrName can't be test, sorry, that's a reserved value.</p>
 </div>

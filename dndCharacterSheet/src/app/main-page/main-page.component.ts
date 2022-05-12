@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from '../Item';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,7 +8,7 @@ import { Item } from '../Item';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  @Output() confirmCharacter = new EventEmitter<string>();
+  @Output() confirmCharacter = new EventEmitter<StatsService>();
 
   constructor() { }
 
@@ -32,7 +33,7 @@ export class MainPageComponent implements OnInit {
   selectedCharacter?: Item|null;
   popupText:string = 'Enter %ERROR% to continue';
 
-  newCharacter():void{ this.confirmCharacter.emit('new'); }
+  newCharacter():void{ this.confirmCharacter.emit(new StatsService()); }
 
   selectCharacter(char: Item|null): void {
     this.selectedCharacter=char;
@@ -46,7 +47,8 @@ export class MainPageComponent implements OnInit {
   attempt(str:string){
     if(this.selectedCharacter){
       if(str==this.selectedCharacter.listText){
-        this.confirmCharacter.emit(this.selectedCharacter.listText);
+        //TODO poke database for character
+        // this.confirmCharacter.emit(this.selectedCharacter.listText);
       } else {
         this.popupText = "Incorrect password \n"+this.popupText
       }
