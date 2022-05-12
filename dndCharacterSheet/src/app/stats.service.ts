@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import * as types from './types'
-import * as features from './features'
+import { Observable, of} from 'rxjs';
+import * as types from './types';
+import * as features from './features';
 
 @Injectable({
 	providedIn: 'root'
@@ -195,6 +196,7 @@ export class StatsService {
 		},
 	}
 	charLevelUpArray:types.levelUps[]=[]
+
 	test(){
 		console.log(this.character);
 		let initalHitDice = new features.initalHitDice;
@@ -205,5 +207,53 @@ export class StatsService {
 		this.character=initalProficiencies.onGainFeature(this.character);
 		console.log(this.character);
 	}
+
 	constructor() { }
+
+	getProficiencies(){return of(this.character.proficiencies)}
+	getExpertises(){return of(this.character.ephemerialStats.deathSaves);}
+	getBaseStats(){return of(this.character.baseStats);}
+	getPermanantStats(){return of(this.character.permanantStats);}
+	getToolProficiencies(){return of(this.character.toolProficiencies);}
+	getLanguages(){return of(this.character.languages);}
+	getEphemerialStats(){return of(this.character.ephemerialStats);}
+	getSneakAttackd6s(){return of(this.character.classSpecificStats.SneakAttackd6s);}
+
+	getCurrentHP(){return of(this.character.ephemerialStats.currentHP);}
+	getTempHP(){return of(this.character.ephemerialStats.tempHP);}
+	getInitiative(){return of(this.character.ephemerialStats.initiative);}
+	getDeathSaves(){return of(this.character.ephemerialStats.deathSaves);}
+	getInspiration(){return of(this.character.ephemerialStats.inspiration);}
+
+	setCurrentHP(newHP: number){ this.character.ephemerialStats.currentHP=newHP;}
+	setTempHP(newTempHP: number){this.character.ephemerialStats.tempHP=newTempHP;}
+	setInitiative(newInitiative: number){this.character.ephemerialStats.initiative=newInitiative;}
+	setInpiration(newInspiration:number){this.character.ephemerialStats.inspiration=newInspiration;}
+	resetDeathSuccsesses(){this.character.ephemerialStats.deathSaves.succsesses=0;}
+	resetDeathFailures(){this.character.ephemerialStats.deathSaves.failures=0;}
+	incrementDeathSuccsesses(){this.character.ephemerialStats.deathSaves.succsesses+=1}
+	incrementDeathFailures(){this.character.ephemerialStats.deathSaves.failures+=1}
+	/* rollDeathSave(){
+		if Math.random()>.5{
+			this.incrementDeathSuccsesses()
+		}else{
+			this.incrementDeathFailures()
+		}
+		if this.character.ephemerialStats.deathSaves.succsesses===3{
+			//trigger a function to show a message
+			this.resetDeathSuccsesses();
+		}else{
+			//trigger failure state
+		}
+	} */
+
+	gethitDiced6(){return of(this.character.ephemerialStats.hitDiceD6);}
+	gethitDiced8(){return of(this.character.ephemerialStats.hitDiceD8);}
+	gethitDiced10(){return of(this.character.ephemerialStats.hitDiceD10);}
+	gethitDiced12(){return of(this.character.ephemerialStats.hitDiceD12);}
+
+	sethitDiced6(newd6:number){this.character.ephemerialStats.hitDiceD6=newd6;}
+	sethitDiced8(newd8:number){this.character.ephemerialStats.hitDiceD8=newd8;}
+	sethitDiced10(newd10:number){this.character.ephemerialStats.hitDiceD10=newd10;}
+	sethitDiced12(newd12:number){this.character.ephemerialStats.hitDiceD12=newd12;}
 }
