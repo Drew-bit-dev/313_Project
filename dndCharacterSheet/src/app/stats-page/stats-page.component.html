@@ -1,11 +1,11 @@
 <div class="statsBody">
     <br>
-    <app-stats-bubble></app-stats-bubble>
+    <app-stats-bubble [character]="character"></app-stats-bubble>
     <br>
-    <app-speed></app-speed>
-    <app-initiative></app-initiative>
-    <app-proficiency></app-proficiency>
-    <app-hitpoints></app-hitpoints>
-    <app-armor-class></app-armor-class>
-    <app-death-saves></app-death-saves>
+    <app-speed [character]="character"></app-speed>
+    <app-initiative [character]="character"></app-initiative>
+    <app-proficiency [character]="character"></app-proficiency>
+    <app-hitpoints [character]="character"></app-hitpoints>
+    <app-armor-class [character]="character"></app-armor-class>
+    <app-death-saves [character]="character"></app-death-saves>
 </div>
