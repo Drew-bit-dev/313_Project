@@ -60,7 +60,7 @@ export class StatsService {
 		baseStats: {
 			proficiencyBonus: 2,
 			maxHPBeforeCon: 0,
-			speed: 0,
+			speed: 25,
 			hitDiceD6: 0,
 			hitDiceD8: 0,
 			hitDiceD10: 0,
