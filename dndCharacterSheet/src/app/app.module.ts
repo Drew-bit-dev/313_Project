@@ -23,6 +23,12 @@ import { ArmorClassComponent } from './stats-page/armor-class/armor-class.compon
 import { DeathSavesComponent } from './stats-page/death-saves/death-saves.component';
 import { HitDiceComponent } from './stats-page/hit-dice/hit-dice.component';
 
+// Firebase
+// WHY DOESNT THIS IMPORT!!!!!
+import { HttpClientModule } from '@angular/common/http';
+// import { AngularFireModule } from '@angular/fire';
+// import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +55,9 @@ import { HitDiceComponent } from './stats-page/hit-dice/hit-dice.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+  	// AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

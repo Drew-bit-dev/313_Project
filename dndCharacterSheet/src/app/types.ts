@@ -110,6 +110,7 @@ export type PermanantStats = {
 	alignmentLawfulChaoitc: LawfulChaotic;
 	class: Class;
 	archetype: Archetype;
+	bio: string;
 	//waiting on relevant types for these.
 	//background
 }
