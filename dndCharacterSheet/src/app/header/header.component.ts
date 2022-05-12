@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ export class HeaderComponent implements OnInit {
 
   @Output() tab = new EventEmitter<string>();
 
+  char:StatsService = new StatsService();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -16,4 +19,8 @@ export class HeaderComponent implements OnInit {
 
   setTab(str:string){ this.tab.emit(str); }
 
+  levelUp(){
+    //TODO
+    console.log("leveeeeele UP!!")
+  }
 }

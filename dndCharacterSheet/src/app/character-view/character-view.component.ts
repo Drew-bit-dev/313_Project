@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-character-view',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CharacterViewComponent implements OnInit {
 
-  @Input() character?:string;
+  @Input() character?:StatsService;
 
   tab:string = 'Stats';
 
