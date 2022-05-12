@@ -209,6 +209,7 @@ export type Languages = {
 	Primordial: boolean;
 	Sylvan: boolean;
 	Undercommon: boolean;
+	ThievesCant: boolean;
 }
 
 export type EphemerialStats = {

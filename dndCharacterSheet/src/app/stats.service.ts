@@ -174,6 +174,7 @@ export class StatsService {
 			Primordial: false,
 			Sylvan: false,
 			Undercommon: false,
+			ThievesCant: false,
 		},
 		ephemerialStats: {
 			currentHP: 0,
