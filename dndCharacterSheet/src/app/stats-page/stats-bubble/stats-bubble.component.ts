@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { STATS } from '../Mock-Stats';
 import { StatsService } from 'src/app/stats.service';
 import * as types from 'src/app/types';
 import { Observable, of } from 'rxjs';
