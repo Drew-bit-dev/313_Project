@@ -52,7 +52,7 @@ export class PlayerCreationComponent implements OnInit {
   proficiencies:types.skillsEnum[]=[]
 
   checkReady(){
-    if(this.selectedClass && this.selectedRace && this.selectedBackground){
+    if(this.selectedClass && this.selectedRace && this.selectedBackground && this.proficiencies.length>3){
       this.readyToMake = true;
     }
     if(!this.align || this.align=="Click to Select"){
@@ -71,6 +71,11 @@ export class PlayerCreationComponent implements OnInit {
   selectRace(i: Item|null){ this.selectedRace=i;this.checkReady(); }
   selectTab(tab: string){
     this.selectedTab=tab;
+  }
+
+  updateProfs(profs:string[]){
+    this.proficiencies = profs as types.skillsEnum[];
+    this.checkReady();
   }
   makeChar(){
     //TODO update DB
