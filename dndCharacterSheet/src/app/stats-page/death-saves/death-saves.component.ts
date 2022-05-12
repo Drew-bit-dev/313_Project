@@ -50,10 +50,12 @@ export class DeathSavesComponent implements OnInit {
   addSuccsess(){
     this.stats.incrementDeathSuccsesses();
     this.checkDeathSaves();
+    this.deathSaves.succsesses=this.stats.character.ephemerialStats.deathSaves.succsesses
   }
 
   addFailure(){
     this.stats.incrementDeathFailures();
     this.checkDeathSaves();
+    this.deathSaves.failures=this.stats.character.ephemerialStats.deathSaves.failures
   }
 }
