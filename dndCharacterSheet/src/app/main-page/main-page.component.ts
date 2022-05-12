@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FirbaseService } from '../firbase.service';
 import { Item } from '../Item';
 import { StatsService } from '../stats.service';
 
@@ -10,9 +11,23 @@ import { StatsService } from '../stats.service';
 export class MainPageComponent implements OnInit {
   @Output() confirmCharacter = new EventEmitter<StatsService>();
 
-  constructor() { }
+  constructor(private charService: FirbaseService) { }
 
-  characters: Item[] = [
+  fetchData(){
+    this.charService.getCharacters().subscribe(data => {
+      this.characters = data;
+      console.log(data)
+      this.generateDisplay();
+    })
+  }
+
+  generateDisplay(){
+
+  }
+
+  characters: StatsService[] = [];
+
+  charactersDisplay: Item[] = [
     {
       listText:"Conan the Barbarian (but a rogue)",
       pointer:"He's really a rogue, not a barbarian, intimidates people for sneak attack",
@@ -60,6 +75,7 @@ export class MainPageComponent implements OnInit {
   clearSelection(): void { this.selectedCharacter=null;location.reload() }
 
   ngOnInit(): void {
+    this.fetchData();
   }
 
 }
