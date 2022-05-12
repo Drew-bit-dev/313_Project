@@ -9,6 +9,7 @@ export const STATS: Stats = {
     charisma: 10, charismamod: 0,
     initiative: 17, speed: 30,
     proficiency: 2,
-    hitpoints: 20, temphitpoints: 5
+    hitpoints: 20, temphitpoints: 5,
+    armorclass: 13
 };
 
