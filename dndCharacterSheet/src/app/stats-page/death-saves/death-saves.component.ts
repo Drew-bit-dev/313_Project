@@ -35,6 +35,8 @@ export class DeathSavesComponent implements OnInit {
       this.stats.character.ephemerialStats.deathSaves.failures = 3;
     }
     this.checkDeathSaves();
+    this.deathSaves.failures=this.stats.character.ephemerialStats.deathSaves.failures
+    this.deathSaves.succsesses=this.stats.character.ephemerialStats.deathSaves.succsesses
   }
   checkDeathSaves(){
       if (this.stats.character.ephemerialStats.deathSaves.succsesses>3){
@@ -50,6 +52,7 @@ export class DeathSavesComponent implements OnInit {
   addSuccsess(){
     this.stats.incrementDeathSuccsesses();
     this.checkDeathSaves();
+    this.deathSaves.failures=this.stats.character.ephemerialStats.deathSaves.failures
     this.deathSaves.succsesses=this.stats.character.ephemerialStats.deathSaves.succsesses
   }
 
@@ -57,5 +60,6 @@ export class DeathSavesComponent implements OnInit {
     this.stats.incrementDeathFailures();
     this.checkDeathSaves();
     this.deathSaves.failures=this.stats.character.ephemerialStats.deathSaves.failures
+    this.deathSaves.succsesses=this.stats.character.ephemerialStats.deathSaves.succsesses
   }
 }
