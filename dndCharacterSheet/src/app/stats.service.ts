@@ -229,8 +229,10 @@ export class StatsService {
 	setTempHP(newTempHP: number){this.character.ephemerialStats.tempHP=newTempHP;}
 	setInitiative(newInitiative: number){this.character.ephemerialStats.initiative=newInitiative;}
 	setInpiration(newInspiration:number){this.character.ephemerialStats.inspiration=newInspiration;}
-	resetDeathSuccsesses(){this.character.ephemerialStats.deathSaves.succsesses=0;}
-	resetDeathFailures(){this.character.ephemerialStats.deathSaves.failures=0;}
+	resetDeathSaves(){
+		this.character.ephemerialStats.deathSaves.succsesses=0;
+		this.character.ephemerialStats.deathSaves.failures=0;
+	}
 	incrementDeathSuccsesses(){this.character.ephemerialStats.deathSaves.succsesses+=1}
 	incrementDeathFailures(){this.character.ephemerialStats.deathSaves.failures+=1}
 	/* rollDeathSave(){

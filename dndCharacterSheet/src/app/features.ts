@@ -58,7 +58,6 @@ export class initalProficiencies implements types.InitalProficiencies{
 		}
 		return character;
 	}
-
 }
 
 export class gainExpertise implements types.GainExpertise{
