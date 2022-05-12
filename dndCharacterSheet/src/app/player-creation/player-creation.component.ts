@@ -50,16 +50,13 @@ export class PlayerCreationComponent implements OnInit {
 
   checkReady(){
     if(this.selectedClass && this.selectedRace && this.selectedBackground){
-      console.log("selected")
       this.readyToMake = true;
     }
-    if(this.align=="Click to Select"){
-      console.log("unaligned")
+    if(!this.align || this.align=="Click to Select"){
       this.readyToMake = false;
+    } else {
+      console.log(this.align)
     }
-    if(this.name)
-      console.log(this.readyToMake)
-    console.log(this.readyToMake)
   }
 
   constructor() { }

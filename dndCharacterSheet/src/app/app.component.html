@@ -1,12 +1,16 @@
 
-<div *ngIf="!selectedCharacter">
-    <app-main-page (confirmCharacter)="selectCharacter($event)"></app-main-page> <!-- When no character is officially selected (selected and passed security), show the character selection page -->
-</div>
-<div *ngIf="selectedCharacter">
-    <div *ngIf="selectedCharacter=='new'">
-        <app-player-creation (create)="selectCharacter($event)"></app-player-creation> <!-- When the "Create New Character" option has been selected, show the player creation screen. Remember to set selectedCharacter at end of creation. -->
+<div style="top:0px;height: 100px; width:100%; background-color: var(--c-bg2); color: var(--c-fg2)" (click)="selectedCharacter=null"><h1 style="text-align: center;">YADCS</h1></div>
+<hr>
+<div style="top: 100px">
+    <div *ngIf="!selectedCharacter">
+        <app-main-page (confirmCharacter)="selectCharacter($event)"></app-main-page> <!-- When no character is officially selected (selected and passed security), show the character selection page -->
     </div>
-    <div *ngIf="selectedCharacter!='new'">
-        <app-character-view [character]="selectedCharacter"></app-character-view> <!-- When a character has been selected and security has been passed, open that character's page. -->
+    <div *ngIf="selectedCharacter">
+        <div *ngIf="selectedCharacter=='new'">
+            <app-player-creation (create)="selectCharacter($event)"></app-player-creation> <!-- When the "Create New Character" option has been selected, show the player creation screen. Remember to set selectedCharacter at end of creation. -->
+        </div>
+        <div *ngIf="selectedCharacter!='new'">
+            <app-character-view [character]="selectedCharacter"></app-character-view> <!-- When a character has been selected and security has been passed, open that character's page. -->
+        </div>
     </div>
 </div>
