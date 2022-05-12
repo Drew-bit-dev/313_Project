@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FirbaseService } from '../firbase.service';
 import { Item } from '../Item';
@@ -21,9 +22,6 @@ export class MainPageComponent implements OnInit {
     })
   }
 
-  generateDisplay(){
-
-  }
 
   characters: StatsService[] = [];
 
@@ -45,15 +43,26 @@ export class MainPageComponent implements OnInit {
     }
   ]
 
-  selectedCharacter?: Item|null;
+  selectedCharacter?: StatsService|null;
   popupText:string = 'Enter %ERROR% to continue';
 
+  generateDisplay(){
+    this.charactersDisplay=[];
+    for(let i = 0; i < this.characters.length; i++){
+      this.charactersDisplay.push({listText:this.characters[i].character.permanantStats.characterName, pointer:"", tags:[]})
+    }
+  }
   newCharacter():void{ this.confirmCharacter.emit(new StatsService()); }
 
   selectCharacter(char: Item|null): void {
-    this.selectedCharacter=char;
+    this.selectedCharacter=null;
+    for(let i = 0; i < this.characters.length; i++){
+      if(char && this.characters[i].character.permanantStats.characterName==char.listText)
+        this.selectedCharacter=this.characters[i]
+    }
+    
     if(this.selectedCharacter){
-      this.popupText = 'Enter '+this.selectedCharacter.listText+' to continue';
+      this.popupText = 'Enter your name to continue';
     } else {
       this.popupText = 'Enter %ERROR% to continue';
     }
@@ -61,9 +70,8 @@ export class MainPageComponent implements OnInit {
 
   attempt(str:string){
     if(this.selectedCharacter){
-      if(str==this.selectedCharacter.listText){
-        //TODO poke database for character
-        // this.confirmCharacter.emit(this.selectedCharacter.listText);
+      if(str==this.selectedCharacter.character.permanantStats.playerName){
+        this.confirmCharacter.emit(this.selectedCharacter);
       } else {
         this.popupText = "Incorrect password \n"+this.popupText
       }
