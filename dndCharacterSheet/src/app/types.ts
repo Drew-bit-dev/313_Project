@@ -1,28 +1,28 @@
 export type Proficiency = {
-	strength: boolean;
-	athletics: boolean;
-	dexterity: boolean;
-	acrobatics: boolean;
-	sleightOfHand: boolean;
-	stealth: boolean;
-	constitution: boolean;
-	intelligence: boolean;
-	arcana: boolean;
-	history: boolean;
-	investigation: boolean;
-	nature: boolean;
-	religion: boolean;
-	wisdom: boolean;
-	animalHandling: boolean;
-	insight: boolean;
-	medicine: boolean;
-	perception: boolean;
-	survival: boolean;
-	charisma: boolean;
-	deception: boolean;
-	intimidation: boolean;
-	performance: boolean;
-	persuasion: boolean;
+	'Strength': boolean;
+	'Athletics': boolean;
+	'Dexterity': boolean;
+	'Acrobatics': boolean;
+	'Sleight of Hand': boolean;
+	'Stealth': boolean;
+	'Constitution': boolean;
+	'Intelligence': boolean;
+	'Arcana': boolean;
+	'History': boolean;
+	'Investigation': boolean;
+	'Nature': boolean;
+	'Religion': boolean;
+	'Wisdom': boolean;
+	'Animal Handling': boolean;
+	'Insight': boolean;
+	'Medicine': boolean;
+	'Perception': boolean;
+	'Survival': boolean;
+	'Charisma': boolean;
+	'Deception': boolean;
+	'Intimidation': boolean;
+	'Performance': boolean;
+	'Persuasion': boolean;
 }
 
 export type skillsEnum =

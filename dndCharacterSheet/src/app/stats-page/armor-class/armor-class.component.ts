@@ -10,10 +10,9 @@ import { Observable, of } from 'rxjs';
 })
 export class ArmorClassComponent implements OnInit {
   @Input() character?:StatsService;
-
-  stats = new StatsService();
-
+  AC?:number;
   ngOnInit(): void {
+    if(this.character)this.AC=10+Math.floor((this.character.character.baseStats.dexterity-10)/2)
   }
 
 }

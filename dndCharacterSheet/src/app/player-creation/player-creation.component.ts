@@ -85,7 +85,7 @@ export class PlayerCreationComponent implements OnInit {
     if(this.playerName)char.character.permanantStats.playerName=this.playerName;
     if(this.align)char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Good")>-1?'Good':this.align.indexOf("Evil")>-1?'Evil':'Neutral';
     if(this.align)char.character.permanantStats.alignmentLawfulChaoitc=this.align.indexOf("Chaotic")>-1?'Chaotic':this.align.indexOf("Lawful")>-1?'Lawful':'Neutral';
-    char.levelUp([new features.initalHitDice(), new features.initalHP(), new features.sneakAttack(1), new features.initalProficiencies(this.proficiencies)]);
+    char.levelUp([new features.initalHitDice(), new features.initalHP(), new features.sneakAttack(1), new features.initalProficiencies(this.proficiencies), new features.initalProficiencies(['Dexterity','Intelligence'])]);
     this.create.emit(char);
     this.firbase.addCharacter(char)
     .subscribe(data => {

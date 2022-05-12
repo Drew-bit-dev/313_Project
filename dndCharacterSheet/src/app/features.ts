@@ -214,7 +214,7 @@ export class slipperyMind implements types.Feature {
 	name="Slippery Mind";
 	description="You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.";
 	onGainFeature(character: types.Character): types.Character {
-		character.proficiencies.wisdom=true;
+		character.proficiencies.Wisdom=true;
 		return character;
 	}
 }

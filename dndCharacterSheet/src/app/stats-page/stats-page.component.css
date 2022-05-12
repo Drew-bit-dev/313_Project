@@ -2,5 +2,5 @@
     margin-top: 25px;
     border: 10px groove rgb(204, 187, 187);
     padding-bottom: 200px;
-    background-color: rgb(253, 236, 224);
+    background-color: var(--c-bg-3);
 }
