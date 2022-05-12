@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() tab = new EventEmitter<string>();
+
+  char:StatsService = new StatsService();
 
   constructor() { }
 
