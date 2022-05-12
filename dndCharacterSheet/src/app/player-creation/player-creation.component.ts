@@ -87,9 +87,10 @@ export class PlayerCreationComponent implements OnInit {
     if(this.align)char.character.permanantStats.alignmentLawfulChaoitc=this.align.indexOf("Chaotic")>-1?'Chaotic':this.align.indexOf("Lawful")>-1?'Lawful':'Neutral';
     char.levelUp([new features.initalHitDice(), new features.initalHP(), new features.sneakAttack(1), new features.initalProficiencies(this.proficiencies)]);
     this.create.emit(char);
-    this.firbase.addCharacter(char).subscribe(data => {
-      console.log(data);
-    });
+    this.firbase.addCharacter(char)
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
   }
 
 }
