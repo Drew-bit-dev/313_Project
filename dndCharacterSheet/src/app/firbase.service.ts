@@ -10,6 +10,6 @@ export class FirbaseService {
   constructor(private http: HttpClient) { }
 
   addCharacter(newChar: StatsService){
-    return this.http.post("https://danddcharsheet-default-rtdb.firebaseio.com/" + "character.json", newChar);
+    return this.http.post("https://yadcs-baa85-default-rtdb.firebaseio.com/" + "character.json", newChar);
   }
 }

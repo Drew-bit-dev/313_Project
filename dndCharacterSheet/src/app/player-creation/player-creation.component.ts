@@ -88,9 +88,10 @@ export class PlayerCreationComponent implements OnInit {
     char.levelUp([new features.initalHitDice(), new features.initalHP(), new features.sneakAttack(1), new features.initalProficiencies(this.proficiencies)]);
     this.create.emit(char);
     this.firbase.addCharacter(char)
-    // .subscribe(data => {
-    //   console.log(data);
-    // })
+    .subscribe(data => {
+      console.log(data);
+    })
+    console.log(char)
   }
 
 }
