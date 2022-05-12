@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class HitpointsComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   playerEPStats: types.EphemerialStats = {
     currentHP: 0,
@@ -44,8 +44,8 @@ export class HitpointsComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.stats.getEphemerialStats().subscribe(playerEPStats => this.playerEPStats = playerEPStats);
-    this.stats.getBaseStats().subscribe(playerBaseStats => this.playerBaseStats = playerBaseStats);
+    this.stats.getEphemerialStats().subscribe(playerEPStats => this.playerEPStats = this.statsService.character.ephemerialStats);
+    this.stats.getBaseStats().subscribe(playerBaseStats => this.playerBaseStats = this.statsService.character.baseStats);
   }
 
 }

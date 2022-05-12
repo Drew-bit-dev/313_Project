@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class HitDiceComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   maxDice: types.BaseStats = {
     proficiencyBonus: 2,
@@ -45,8 +45,8 @@ export class HitDiceComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.stats.getBaseStats().subscribe(maxDice => this.maxDice = maxDice);
-    this.stats.getEphemerialStats().subscribe(currentDice => this.currentDice = currentDice);
+    this.stats.getBaseStats().subscribe(maxDice => this.maxDice = this.statsService.character.baseStats);
+    this.stats.getEphemerialStats().subscribe(currentDice => this.currentDice = this.statsService.character.ephemerialStats);
   }
 
   useD6() {
