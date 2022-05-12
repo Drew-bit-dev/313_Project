@@ -18,6 +18,6 @@
 </div>
 <div>
     Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
-<button *ngIf="readyToMake && name && playerName && playerName!='test'" (click)="makeChar()">Next</button>
-<p *ngIf="playerName && playerName=='test'">playrName can't be test, sorry, that's a reserved value.</p>
+<button *ngIf="readyToMake && name && playerName && playerName!='player'" (click)="makeChar()">Next</button>
+<p *ngIf="playerName && playerName=='player'">playrName can't be player, sorry, that's a reserved value.</p>
 </div>
