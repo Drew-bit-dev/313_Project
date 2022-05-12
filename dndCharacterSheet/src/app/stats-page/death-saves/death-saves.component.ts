@@ -12,8 +12,10 @@ export class DeathSavesComponent implements OnInit {
 
   constructor() { }
   stats = new StatsService();
+  deathSaves: types.DeathSaves = {succsesses: 0, failures: 0};
 
   ngOnInit(): void {
+    this.stats.getDeathSaves().subscribe(deathSaves => this.deathSaves = deathSaves);
   }
 
   rollDeathSave(){
@@ -31,13 +33,26 @@ export class DeathSavesComponent implements OnInit {
     else{
       this.stats.character.ephemerialStats.deathSaves.failures = 3;
     }
-		if (this.stats.character.ephemerialStats.deathSaves.succsesses===3){
-			//trigger a function to show a message
-			this.stats.resetDeathSaves();
-		}
-    else{
-			//trigger failure state
-		}
+    this.checkDeathSaves();
+  }
+  checkDeathSaves(){
+      if (this.stats.character.ephemerialStats.deathSaves.succsesses>3){
+        //trigger a function to show a message
+        this.stats.resetDeathSaves();
+      }
+      else if (this.stats.character.ephemerialStats.deathSaves.failures>3){
+        //trigger failure state
+       this.stats.resetDeathSaves();
+    }
+  }
 
-}
+  addSuccsess(){
+    this.stats.incrementDeathSuccsesses();
+    this.checkDeathSaves();
+  }
+
+  addFailure(){
+    this.stats.incrementDeathFailures();
+    this.checkDeathSaves();
+  }
 }

@@ -1,4 +1,9 @@
 <div>
-    <button type="button" (click)="rollDeathSave()"></button>
-    <span>Successes: {{deathsaves.succsesses}}</span>
+    <button type="button" (click)="rollDeathSave()">Roll Death Saves</button>
+    <br>
+    <span>Successes: {{deathSaves.succsesses}} </span>
+    <button type="button" (click)="addSuccsess()">Add Success</button>
+    <br>
+    <span>Failures: {{deathSaves.failures}} </span>
+    <button type="button" (click)="addFailure()">Add Failure</button>
 </div>
