@@ -24,4 +24,6 @@ export interface Stats {
 
     hitpoints: number;
     temphitpoints: number;
+
+    armorclass: number;
 }

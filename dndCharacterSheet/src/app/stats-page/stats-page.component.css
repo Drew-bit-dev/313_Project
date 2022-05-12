@@ -1,5 +1,6 @@
 .statsBody{
     margin-top: 25px;
-    border: 2px solid gray;
+    border: 10px groove rgb(204, 187, 187);
     padding-bottom: 400px;
+    background-color: rgb(253, 236, 224);
 }
