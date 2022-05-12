@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
 
   setTab(str:string){ this.tab.emit(str); }
 
+  levelUp(){
+    //TODO
+    console.log("leveeeeele UP!!")
+  }
 }
