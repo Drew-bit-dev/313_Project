@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StatsService } from '../stats.service';
 
 @Component({
   selector: 'app-stats-page',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsPageComponent implements OnInit {
 
+  @Input() character?:StatsService;
   constructor() { }
 
   ngOnInit(): void {

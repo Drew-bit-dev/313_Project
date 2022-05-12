@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StatsService } from '../../stats.service';
 import { STATS } from '../Mock-Stats';
 
 @Component({
@@ -7,6 +8,7 @@ import { STATS } from '../Mock-Stats';
   styleUrls: ['./stats-bubble.component.css']
 })
 export class StatsBubbleComponent implements OnInit {
+  @Input() character?:StatsService;
 
   constructor() { }
   stats = STATS;

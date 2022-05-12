@@ -57,7 +57,7 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  clearSelection(): void { this.selectedCharacter=null; }
+  clearSelection(): void { this.selectedCharacter=null;location.reload() }
 
   ngOnInit(): void {
   }

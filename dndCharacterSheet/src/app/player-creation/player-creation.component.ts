@@ -75,8 +75,8 @@ export class PlayerCreationComponent implements OnInit {
     let char = new StatsService();
     if(this.name)char.character.permanantStats.characterName=this.name;
     if(this.playerName)char.character.permanantStats.playerName=this.playerName;
-    // char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Good")>-1?types.GoodEvil.Good:this.align.indexOf("Evil")>-1?types.GoodEvil.Evil:types.GoodEvil.Neutral;
-    // char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Chaotic")>-1?types.LawfulChaotic.Chaotic:this.align.indexOf("Lawful")>-1?types.LawfulChaotic.Lawful:types.LawfulChaotic.Neutral;
+    if(this.align)char.character.permanantStats.alignmentGoodEvil=this.align.indexOf("Good")>-1?'Good':this.align.indexOf("Evil")>-1?'Evil':'Neutral';
+    if(this.align)char.character.permanantStats.alignmentLawfulChaoitc=this.align.indexOf("Chaotic")>-1?'Chaotic':this.align.indexOf("Lawful")>-1?'Lawful':'Neutral';
     this.create.emit(char);
   }
 

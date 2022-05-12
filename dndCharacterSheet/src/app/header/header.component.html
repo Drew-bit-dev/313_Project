@@ -1,41 +1,43 @@
-<div class="header">
-    <p>Character Name: {{char.character.permanantStats.characterName}}</p>
-</div>
+<span *ngIf="char">
+    <div class="header">
+        <p>Character Name: {{char.character.permanantStats.characterName}}</p>
+    </div>
 
-<div class="header">
-    <p>Player Name: {{char.character.permanantStats.playerName}}</p>
-</div>
+    <div class="header">
+        <p>Player Name: {{char.character.permanantStats.playerName}}</p>
+    </div>
 
-<div class="header">
-    <p>Level: {{char.character.permanantStats.level}}</p>
-</div>
+    <div class="header">
+        <p>Level: {{char.character.permanantStats.level}}</p>
+    </div>
 
-<div class="header">
-    <p>Hit Points: {{char.character.ephemerialStats.currentHP}}</p>
-</div>
+    <div class="header">
+        <p>Hit Points: {{char.character.ephemerialStats.currentHP}}</p>
+    </div>
 
-<div class="header">
-    <p>Class: Rogue</p>
-</div>
+    <div class="header">
+        <p>Class: Rogue</p>
+    </div>
 
-<div class="header">
-    <p>Race: Halfling</p>
-</div>
+    <div class="header">
+        <p>Race: Halfling</p>
+    </div>
 
-<div class="header">
-    <p>Alignment: {{char.character.permanantStats.alignmentLawfulChaoitc}} {{char.character.permanantStats.alignmentGoodEvil}}</p>
-</div>
+    <div class="header">
+        <p>Alignment: {{char.character.permanantStats.alignmentLawfulChaoitc}} {{char.character.permanantStats.alignmentGoodEvil}}</p>
+    </div>
 
-<div class="header">
-    <p>Experience: N/A</p>
-</div>
+    <div class="header">
+        <p>Experience: N/A</p>
+    </div>
 
-<div class="tabs">
-    <button (click)="setTab('Stats')">Stats</button>
-    <!-- <button (click)="setTab('Inventory')">Inventory</button> -->
-    <button (click)="setTab('Class')">Class</button>
-    <button (click)="setTab('Bio')">Bio</button>
-    <!-- <button onclick="history.go(0)">Home</button> -->
-    <!-- <button>Other Stuff</button> -->
-</div>
+    <div class="tabs">
+        <button (click)="setTab('Stats')">Stats</button>
+        <!-- <button (click)="setTab('Inventory')">Inventory</button> -->
+        <button (click)="setTab('Class')">Class</button>
+        <button (click)="setTab('Bio')">Bio</button>
+        <!-- <button onclick="history.go(0)">Home</button> -->
+        <!-- <button>Other Stuff</button> -->
+    </div>
 <button (click)="levelUp()">Level Up</button>
+</span>

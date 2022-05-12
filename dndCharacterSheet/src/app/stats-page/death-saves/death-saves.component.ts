@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StatsService } from '../../stats.service';
 
 @Component({
   selector: 'app-death-saves',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./death-saves.component.css']
 })
 export class DeathSavesComponent implements OnInit {
+  @Input() character?:StatsService;
 
   constructor() { }
 
