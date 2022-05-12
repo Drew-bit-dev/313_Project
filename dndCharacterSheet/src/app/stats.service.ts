@@ -246,11 +246,13 @@ export class StatsService {
 	getInitiative(){return of(this.character.ephemerialStats.initiative);}
 	getDeathSaves(){return of(this.character.ephemerialStats.deathSaves);}
 	getInspiration(){return of(this.character.ephemerialStats.inspiration);}
+	getSpeed(){return of(this.character.baseStats.speed);}
 
 	setCurrentHP(newHP: number){ this.character.ephemerialStats.currentHP=newHP;}
 	setTempHP(newTempHP: number){this.character.ephemerialStats.tempHP=newTempHP;}
 	setInitiative(newInitiative: number){this.character.ephemerialStats.initiative=newInitiative;}
 	setInpiration(newInspiration:number){this.character.ephemerialStats.inspiration=newInspiration;}
+	setSpeed(newSpeed:number){this.character.baseStats.speed=newSpeed;}
 	resetDeathSaves(){
 		this.character.ephemerialStats.deathSaves.succsesses=0;
 		this.character.ephemerialStats.deathSaves.failures=0;

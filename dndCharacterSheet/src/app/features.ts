@@ -79,6 +79,22 @@ export class gainExpertise implements types.Feature{
 	}
 }
 
+export class gainHP implements types.Feature{
+	name:string;
+	description:string;
+	HPGained:number;
+	constructor(levelGained: number, HPGained: number){
+		let levelString=formatNumber(levelGained);
+		this.name='${levelString} level HP gain';
+		this.description='HP gained at the ${levelString} level';
+		this.HPGained=HPGained
+	}
+	onGainFeature(character: types.Character): types.Character{
+		character.baseStats.maxHPBeforeCon+=this.HPGained;
+		return character
+	}
+}
+
 export class sneakAttack implements types.Feature{
 	name:string;
 	description:string;
@@ -89,6 +105,20 @@ export class sneakAttack implements types.Feature{
 	}
 	onGainFeature(character: types.Character): types.Character{
 		character.classSpecificStats.SneakAttackd6s+=1;
+		return character
+	}
+}
+
+export class hitDice implements types.Feature{
+	name:string;
+	description:string;
+	constructor(levelGained: number,){
+		let levelString=formatNumber(levelGained);
+		this.name='${levelString} level hit dice';
+		this.description='Hit dice increase gained at ${levelString level';
+	}
+	onGainFeature(character: types.Character): types.Character{
+		character.baseStats.hitDiceD8+=1;
 		return character
 	}
 }
@@ -146,6 +176,20 @@ export class abilityScoreImprovement implements types.Feature {
 			character.baseStats[key]+=1
 		}
 		return character;
+	}
+}
+
+export class proficiencyBonusIncrease implements types.Feature{
+	name:string;
+	description:string;
+	constructor(levelGained:number){
+		let levelString=formatNumber(levelGained);
+		this.name='${levelString} level proficiency bounus';
+		this.description='proficiency bounus gained at ${levelString} level'
+	}
+	onGainFeature(character: types.Character): types.Character{
+		character.baseStats.proficiencyBonus+=1;
+		return character
 	}
 }
 export class reliableTalent implements types.Feature {
