@@ -4,7 +4,7 @@
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Classes" [selectedItem]="selectedClass" (onSelect)="selectClass($event)"></app-listbox></div>
     <div *ngIf="selectedClass">
         Selected Class Details: {{selectedClass}}
-        Proficiencies: <app-item-selector [amount]=4 [options]="['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation', 'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand', 'Stealth']"></app-item-selector>
+        Proficiencies: <app-item-selector (submit)="updateProfs($event)" [amount]=4 [default]="proficiencies" [options]="['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation', 'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand', 'Stealth']"></app-item-selector>
     </div>
     
 </div>
@@ -19,5 +19,5 @@
 <div>
     Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
 <button *ngIf="readyToMake && name && playerName && playerName!='player'" (click)="makeChar()">Next</button>
-<p *ngIf="playerName && playerName=='player'">playrName can't be player, sorry, that's a reserved value.</p>
+<p *ngIf="playerName && playerName=='player'">playerName can't be player, sorry, that's a reserved value.</p>
 </div>

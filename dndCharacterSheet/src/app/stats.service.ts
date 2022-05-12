@@ -80,6 +80,7 @@ export class StatsService {
 			alignmentLawfulChaoitc: 'Lawful',
 			class: 'Rouge',
 			archetype: 'None',
+			bio: ''
 		},
 		toolProficiencies: {
 			alchemistsSupplies: false,
@@ -247,12 +248,14 @@ export class StatsService {
 	getDeathSaves(){return of(this.character.ephemerialStats.deathSaves);}
 	getInspiration(){return of(this.character.ephemerialStats.inspiration);}
 	getSpeed(){return of(this.character.baseStats.speed);}
+	getBio(){return of(this.character.permanantStats.bio);}
 
 	setCurrentHP(newHP: number){ this.character.ephemerialStats.currentHP=newHP;}
 	setTempHP(newTempHP: number){this.character.ephemerialStats.tempHP=newTempHP;}
 	setInitiative(newInitiative: number){this.character.ephemerialStats.initiative=newInitiative;}
 	setInpiration(newInspiration:number){this.character.ephemerialStats.inspiration=newInspiration;}
 	setSpeed(newSpeed:number){this.character.baseStats.speed=newSpeed;}
+	setBio(newBio:string){this.character.permanantStats.bio=newBio;}
 	resetDeathSaves(){
 		this.character.ephemerialStats.deathSaves.succsesses=0;
 		this.character.ephemerialStats.deathSaves.failures=0;

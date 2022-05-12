@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as types from '../types';
 
 @Component({
   selector: 'app-item-selector',
@@ -10,6 +11,7 @@ export class ItemSelectorComponent implements OnInit {
   @Output() submit = new EventEmitter<string[]>();
   @Input() amount?:number;
   @Input() options?:string[];
+  @Input() default?:string[];
   currentOptions?:string;
 
   @Input() selection?:string[];
@@ -22,7 +24,11 @@ export class ItemSelectorComponent implements OnInit {
     this.selection = [];
     this.indices = [];
     for(let i = 0; this.amount && i < this.amount; i++){
-      this.selection.push("Click to Select");
+      if(this.default && this.default.length>i){
+        this.selection.push(this.default[i]);
+      } else {
+        this.selection.push("Click to Select");
+      }
       this.indices.push(i);
     }
     this.updateOptions();
@@ -49,7 +55,11 @@ export class ItemSelectorComponent implements OnInit {
     } else if(this.selection) {
       this.selection[this.selectedIndex]=str
       this.selectedIndex=-1;
-      this.submit.emit(this.selection)
+      let out = [];
+      for(let i = 0; i < this.selection.length; i++){
+        if(this.selection[i]!='Click to Select')out.push(this.selection[i])
+      }
+      this.submit.emit(out)
       this.updateOptions()
     }
   }
