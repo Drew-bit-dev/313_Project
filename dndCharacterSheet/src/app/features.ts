@@ -35,7 +35,7 @@ export class initalHP implements types.Feature{
 	}
 }
 
-export class initalProficiencies implements types.InitalProficiencies{
+export class initalProficiencies implements types.Feature{
 	//short name
 	name='Inital InitalProficiencies';
 	//long description
@@ -60,7 +60,7 @@ export class initalProficiencies implements types.InitalProficiencies{
 	}
 }
 
-export class gainExpertise implements types.GainExpertise{
+export class gainExpertise implements types.Feature{
 	name:string;
 	description:string;
 	expertiseGained: types.skillsEnum[]
@@ -130,7 +130,7 @@ export class evasion implements types.Feature {
 	}
 }
 
-export class abilityScoreImprovement implements types.AbilityIncrease {
+export class abilityScoreImprovement implements types.Feature {
 	name:string;
 	description:string;
 	statsGained: types.statsEnum[];

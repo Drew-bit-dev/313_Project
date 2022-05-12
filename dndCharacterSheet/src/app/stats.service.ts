@@ -9,7 +9,7 @@ import * as features from './features';
 export class StatsService {
 
 	//initalizing a blank character
-	character:types.Character={
+	startingCharacter:types.Character={
 		proficiencies: {
 			strength: false,
 			athletics: false,
@@ -65,12 +65,12 @@ export class StatsService {
 			hitDiceD8: 0,
 			hitDiceD10: 0,
 			hitDiceD12: 0,
-			strength: 10,
-			dexterity: 10,
-			constitution: 10,
-			intelligence: 10,
-			wisdom: 10,
-			charisma: 10,
+			strength: 0,
+			dexterity: 0,
+			constitution: 0,
+			intelligence: 0,
+			wisdom: 0,
+			charisma: 0,
 		},
 		permanantStats: {
 			level: 0,
@@ -195,21 +195,44 @@ export class StatsService {
 			SneakAttackd6s:0,
 		},
 	}
-	charLevelUpArray:types.levelUps[]=[]
+	character=this.startingCharacter;
+
+	//two dimentional array. eatch array of features represents one level. the contents of the level array are the features gained for that level up. Therefore, the length of the top level array is equal to the character level.
+	charLevelUpArray:types.Feature[][]=[]
 
 	test(){
 		console.log(this.character);
 		let initalHitDice = new features.initalHitDice;
-		this.character=initalHitDice.onGainFeature(this.character);
 		let initalHP=new features.initalHP;
-		this.character=initalHP.onGainFeature(this.character);
 		let initalProficiencies=new features.initalProficiencies(['athletics', 'intimidation', 'persuasion', 'stealth']);
-		this.character=initalProficiencies.onGainFeature(this.character);
+		this.levelUp([initalHitDice, initalHP, initalProficiencies]);
 		console.log(this.character);
+		console.log(this.charLevelUpArray);
 	}
 
 	constructor() { }
 
+	//Leveling up involves constructing whatever new features are needed to be added to the character (see features.ts for what, if any, a given feature needs to be constructed). After you have constructed all features you need for a given level up, pass all of them to a single call of levelUp.
+	levelUp(newFeatures: types.Feature[]){
+		for (let i=0; i<newFeatures.length; i++){
+			this.character=newFeatures[i].onGainFeature(this.character);
+		}
+		this.charLevelUpArray.push(newFeatures);
+		this.character.permanantStats.level=this.charLevelUpArray.length
+	}
+
+	reconstructChar(levelUpArray:types.Feature[][]){
+		this.character=this.startingCharacter;
+		this.charLevelUpArray=levelUpArray;
+		this.character.permanantStats.level=levelUpArray.length;
+		for (let i=0; i<levelUpArray.length; i++){
+			for (let j=0; j<levelUpArray[i].length; j++){
+				this.character=levelUpArray[i][j].onGainFeature(this.character);
+			}
+		}
+	}
+
+	//TODO make AC setter and getter. Setter should accept an armour type.
 	getProficiencies(){return of(this.character.proficiencies)}
 	getExpertises(){return of(this.character.ephemerialStats.deathSaves);}
 	getBaseStats(){return of(this.character.baseStats);}
@@ -218,7 +241,6 @@ export class StatsService {
 	getLanguages(){return of(this.character.languages);}
 	getEphemerialStats(){return of(this.character.ephemerialStats);}
 	getSneakAttackd6s(){return of(this.character.classSpecificStats.SneakAttackd6s);}
-
 	getCurrentHP(){return of(this.character.ephemerialStats.currentHP);}
 	getTempHP(){return of(this.character.ephemerialStats.tempHP);}
 	getInitiative(){return of(this.character.ephemerialStats.initiative);}
@@ -235,19 +257,6 @@ export class StatsService {
 	}
 	incrementDeathSuccsesses(){this.character.ephemerialStats.deathSaves.succsesses+=1}
 	incrementDeathFailures(){this.character.ephemerialStats.deathSaves.failures+=1}
-	/* rollDeathSave(){
-		if Math.random()>.5{
-			this.incrementDeathSuccsesses()
-		}else{
-			this.incrementDeathFailures()
-		}
-		if this.character.ephemerialStats.deathSaves.succsesses===3{
-			//trigger a function to show a message
-			this.resetDeathSuccsesses();
-		}else{
-			//trigger failure state
-		}
-	} */
 
 	gethitDiced6(){return of(this.character.ephemerialStats.hitDiceD6);}
 	gethitDiced8(){return of(this.character.ephemerialStats.hitDiceD8);}
