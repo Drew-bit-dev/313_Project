@@ -273,7 +273,6 @@ export interface StatsFromRoll{
 	prompt: string,
 	//what was input
 	roll: number,
-	// constructor(roll: number),
 	onGainFeature(character: Character):Character
 }
 
@@ -282,9 +281,7 @@ export interface GainExpertise {
 	name: string,
 	//long description
 	description: string,
-	firstExpertise: skillsEnum,
-	secondExpertise: skillsEnum,
-	// constructor(firstExpertise: skillsEnum, secondExpertise: skillsEnum),
+	expertiseGained: skillsEnum[]
 	onGainFeature(character: Character):Character
 }
 
@@ -294,7 +291,6 @@ export interface InitalProficiencies {
 	//long description
 	description: string,
 	proficienciesGained: skillsEnum[]
-	// constructor(firstProficiency: skillsEnum, secondProficiency: skillsEnum, thirdProficiency: skillsEnum, fourthProficiency: skillsEnum),
 	onGainFeature(character: Character):Character
 }
 
@@ -303,9 +299,7 @@ export interface AbilityIncrease {
 	name: string,
 	//long description
 	description: string,
-	firstStat: statsEnum,
-	secondStat: statsEnum
-	// constructor(firstStat: statsEnum, secondStat: statsEnum),
+	statsGained: statsEnum[]
 	onGainFeature(character: Character):Character
 }
 export type levelUps=
