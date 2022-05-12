@@ -12,7 +12,7 @@ import { Observable, of } from 'rxjs';
 export class ProficiencyComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   playerStats: types.BaseStats = {
     proficiencyBonus: 2,
@@ -31,7 +31,7 @@ export class ProficiencyComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.stats.getBaseStats().subscribe(playerStats => this.playerStats = playerStats);
+    this.stats.getBaseStats().subscribe(playerStats => this.playerStats = this.statsService.character.baseStats);
   }
 
 }

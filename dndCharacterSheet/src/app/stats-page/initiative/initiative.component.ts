@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class InitiativeComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   playerStats: types.EphemerialStats = {
     currentHP: 0,
@@ -29,7 +29,7 @@ export class InitiativeComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.stats.getEphemerialStats().subscribe(playerStats => this.playerStats = playerStats);
+    this.stats.getEphemerialStats().subscribe(playerStats => this.playerStats = this.statsService.character.ephemerialStats);
   }
 
 }

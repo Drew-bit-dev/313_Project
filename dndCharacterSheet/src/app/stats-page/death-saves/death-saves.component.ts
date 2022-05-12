@@ -11,12 +11,12 @@ import { Observable, of } from 'rxjs';
 export class DeathSavesComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   deathSaves: types.DeathSaves = {succsesses: 0, failures: 0};
 
   ngOnInit(): void {
-    this.stats.getDeathSaves().subscribe(deathSaves => this.deathSaves = deathSaves);
+    this.stats.getDeathSaves().subscribe(deathSaves => this.deathSaves = this.statsService.character.ephemerialStats.deathSaves);
   }
 
   rollDeathSave(){

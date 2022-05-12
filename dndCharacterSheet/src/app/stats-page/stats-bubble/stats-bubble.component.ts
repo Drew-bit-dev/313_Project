@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class StatsBubbleComponent implements OnInit {
   @Input() character?:StatsService;
 
-  constructor() { }
+  constructor(public statsService: StatsService) { }
   stats = new StatsService();
   playerStats: types.BaseStats = {
     proficiencyBonus: 2,
@@ -30,7 +30,7 @@ export class StatsBubbleComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.stats.getBaseStats().subscribe(playerStats => this.playerStats = playerStats);
+    this.stats.getBaseStats().subscribe(playerStats => this.playerStats = this.statsService.character.baseStats);
   }
 
   calculateModifier(number: number): number{
