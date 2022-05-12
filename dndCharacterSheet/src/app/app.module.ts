@@ -21,6 +21,7 @@ import { ProficiencyComponent } from './stats-page/proficiency/proficiency.compo
 import { HitpointsComponent } from './stats-page/hitpoints/hitpoints.component';
 import { ArmorClassComponent } from './stats-page/armor-class/armor-class.component';
 import { DeathSavesComponent } from './stats-page/death-saves/death-saves.component';
+import { HitDiceComponent } from './stats-page/hit-dice/hit-dice.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DeathSavesComponent } from './stats-page/death-saves/death-saves.compon
     ProficiencyComponent,
     HitpointsComponent,
     ArmorClassComponent,
-    DeathSavesComponent
+    DeathSavesComponent,
+    HitDiceComponent
   ],
   imports: [
     BrowserModule,
