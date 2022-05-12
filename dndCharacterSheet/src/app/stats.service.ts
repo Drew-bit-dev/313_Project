@@ -58,6 +58,7 @@ export class StatsService {
 			persuasion: false,
 		},
 		baseStats: {
+			level: 0,
 			proficiencyBonus: 2,
 			maxHPBeforeCon: 0,
 			speed: 0,
@@ -73,13 +74,13 @@ export class StatsService {
 			charisma: 0,
 		},
 		permanantStats: {
-			level: 0,
 			characterName: 'test',
 			playerName: 'player',
 			alignmentGoodEvil: 'Good',
 			alignmentLawfulChaoitc: 'Lawful',
 			class: 'Rouge',
 			archetype: 'None',
+			bio: ''
 		},
 		toolProficiencies: {
 			alchemistsSupplies: false,
@@ -218,13 +219,13 @@ export class StatsService {
 			this.character=newFeatures[i].onGainFeature(this.character);
 		}
 		this.charLevelUpArray.push(newFeatures);
-		this.character.permanantStats.level=this.charLevelUpArray.length
+		this.character.baseStatsStats.level=this.charLevelUpArray.length
 	}
 
 	reconstructChar(levelUpArray:types.Feature[][]){
 		this.character=this.startingCharacter;
 		this.charLevelUpArray=levelUpArray;
-		this.character.permanantStats.level=levelUpArray.length;
+		this.character.baseStats.level=levelUpArray.length;
 		for (let i=0; i<levelUpArray.length; i++){
 			for (let j=0; j<levelUpArray[i].length; j++){
 				this.character=levelUpArray[i][j].onGainFeature(this.character);
@@ -247,12 +248,14 @@ export class StatsService {
 	getDeathSaves(){return of(this.character.ephemerialStats.deathSaves);}
 	getInspiration(){return of(this.character.ephemerialStats.inspiration);}
 	getSpeed(){return of(this.character.baseStats.speed);}
+	getBio(){return of(this.character.permanantStats.bio);}
 
 	setCurrentHP(newHP: number){ this.character.ephemerialStats.currentHP=newHP;}
 	setTempHP(newTempHP: number){this.character.ephemerialStats.tempHP=newTempHP;}
 	setInitiative(newInitiative: number){this.character.ephemerialStats.initiative=newInitiative;}
 	setInpiration(newInspiration:number){this.character.ephemerialStats.inspiration=newInspiration;}
 	setSpeed(newSpeed:number){this.character.baseStats.speed=newSpeed;}
+	setBio(newBio:string){this.character.permanantStats.bio=newbio;}
 	resetDeathSaves(){
 		this.character.ephemerialStats.deathSaves.succsesses=0;
 		this.character.ephemerialStats.deathSaves.failures=0;

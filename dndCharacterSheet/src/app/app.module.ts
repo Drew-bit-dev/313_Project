@@ -22,6 +22,11 @@ import { HitpointsComponent } from './stats-page/hitpoints/hitpoints.component';
 import { ArmorClassComponent } from './stats-page/armor-class/armor-class.component';
 import { DeathSavesComponent } from './stats-page/death-saves/death-saves.component';
 
+// Firebase
+// WHY DOESNT THIS IMPORT!!!!!
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,8 @@ import { DeathSavesComponent } from './stats-page/death-saves/death-saves.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+	AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
