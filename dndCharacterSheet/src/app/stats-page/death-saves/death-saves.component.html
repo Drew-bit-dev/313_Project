@@ -1,10 +1,9 @@
 <div>
-    <div *ngIf="fCount == 3">{{dead}}</div>
-        <span >Success: {{sCount}} </span>
-        <button type="button" (click)="addsCount()">Succeed Roll</button>
-        <br>
-        <span>Failure: {{fCount}} </span>
-        <button type="button" (click)="addfCount()">Fail Roll</button>
-        <br>
-        <button tpye="button" (click)="reset()">Reset Roll</button>
+    <button type="button" (click)="rollDeathSave()">Roll Death Saves</button>
+    <br>
+    <span>Successes: {{deathSaves.succsesses}} </span>
+    <button type="button" (click)="addSuccsess()">Add Success</button>
+    <br>
+    <span>Failures: {{deathSaves.failures}} </span>
+    <button type="button" (click)="addFailure()">Add Failure</button>
 </div>

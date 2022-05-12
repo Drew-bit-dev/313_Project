@@ -1,7 +1,13 @@
 div{
     margin-left: 50px;
     padding: 1em;
+    padding-right: 60px;
     border: 3px inset tan;
     float: left;
+    position: relative; top:-40px;
     background-color: rgb(184, 164, 137);
+}
+
+li{
+    list-style: none;
 }
