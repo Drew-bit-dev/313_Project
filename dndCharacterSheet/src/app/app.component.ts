@@ -8,7 +8,7 @@ import * as types from './types'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedCharacter?: string; //TODO should this really be a string? idk how we poking DB or storing characters or what primary keys are or whatever
+  selectedCharacter?: string|null; //TODO should this really be a string? idk how we poking DB or storing characters or what primary keys are or whatever
   title = 'dndCharacterSheet';
   selectCharacter(char:string):void{ this.selectedCharacter=char }
   ngOnInit(){
