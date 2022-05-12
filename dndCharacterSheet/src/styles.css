@@ -8,3 +8,26 @@
     --c-fg2t: #eed8;
     --c-fg3: #CCB;
 }
+
+button{
+    background-color: chocolate;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover{
+    background-color: crimson;
+    border-radius: 8px;
+}
+
+div{
+    border-radius: 8px;
+}
+
+span{
+    border-radius: 8px;
+}
+
+body{
+    background-color: darkslategrey;
+}

@@ -1,3 +1,4 @@
+<button onclick="history.go(0)">Home</button>
 <input [(ngModel)]="name" placeholder="Character Name..." /> <div><button (click)="selectTab('Class')">Class</button><button (click)="selectTab('Race')">Race</button><button (click)="selectTab('Background')">Background</button></div>
 <div *ngIf="selectedTab=='Class'">
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Classes" [selectedItem]="selectedClass" (onSelect)="selectClass($event)"></app-listbox></div>
@@ -12,5 +13,7 @@
     <div style="height:100px;width:100px;"><app-listbox [itemList]="Backgrounds" [selectedItem]="selectedBackground" (onSelect)="selectBackground($event)"></app-listbox></div>
     <div>Selected Background Details: {{selectedBackground}}</div>
 </div>
-Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
+<div>
+    Alignment:<app-item-selector [amount]=1 [options]="['Lawful Evil', 'Lawful', 'Lawful Good', 'Evil', 'Neutral', 'Good', 'Chaotic Evil', 'Chaotic', 'Chaotic Good']" (submit)="setAlign($event[0])"></app-item-selector>
 <button *ngIf="readyToMake && name" (click)="makeChar()">Next</button>
+</div>

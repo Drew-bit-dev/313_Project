@@ -3,7 +3,7 @@
     height: 100%;
     min-height: 100px;
     overflow-y: scroll;
-    background-color: var(--c-bg1);
+    background-color: darkslategrey;
     position:relative;
 }
 button {
