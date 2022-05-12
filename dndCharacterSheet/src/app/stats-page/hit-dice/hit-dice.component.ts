@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StatsService } from 'src/app/stats.service';
 import * as types from 'src/app/types';
 import { Observable, of } from 'rxjs';
@@ -9,6 +9,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./hit-dice.component.css']
 })
 export class HitDiceComponent implements OnInit {
+  @Input() character?:StatsService;
 
   constructor() { }
   stats = new StatsService();
