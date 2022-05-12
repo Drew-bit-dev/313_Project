@@ -24,8 +24,9 @@ import { DeathSavesComponent } from './stats-page/death-saves/death-saves.compon
 
 // Firebase
 // WHY DOESNT THIS IMPORT!!!!!
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+// import { AngularFireModule } from '@angular/fire';
+// import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-	AngularFireModule.initializeApp(environment.firebaseConfig)
+    HttpClientModule,
+  	// AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
