@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StatsService } from 'src/app/stats.service';
-import * as types from 'src/app/types';
+import { StatsService } from '../../stats.service';
+import * as types from '../../types';
 import { Observable, of } from 'rxjs';
 
 

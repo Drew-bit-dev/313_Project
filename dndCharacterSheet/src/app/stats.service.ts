@@ -204,7 +204,7 @@ export class StatsService {
 		console.log(this.character);
 		let initalHitDice = new features.initalHitDice;
 		let initalHP=new features.initalHP;
-		let initalProficiencies=new features.initalProficiencies(['athletics', 'intimidation', 'persuasion', 'stealth']);
+		let initalProficiencies=new features.initalProficiencies(['Athletics', 'Intimidation', 'Persuasion', 'Stealth']);
 		this.levelUp([initalHitDice, initalHP, initalProficiencies]);
 		console.log(this.character);
 		console.log(this.charLevelUpArray);
