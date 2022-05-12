@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {StatsService} from './stats.service';
+import * as types from './types'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dndCharacterSheet';
+  ngOnInit(){
+	  this.statsService.test();
+  }
+  constructor(private statsService: StatsService){}
 }

@@ -75,7 +75,7 @@ export type Expertise = {
 
 export type BaseStats = {
 	proficiencyBonus: number;
-	maxHP: number;
+	maxHPBeforeCon: number;
 	speed: number;
 	hitDiceD6: number;
 	hitDiceD8: number;
@@ -109,6 +109,7 @@ export type PermanantStats = {
 	alignmentGoodEvil: GoodEvil;
 	alignmentLawfulChaoitc: LawfulChaotic;
 	class: Class;
+	archetype: Archetype;
 	//waiting on relevant types for these.
 	//background
 }
@@ -146,6 +147,49 @@ export type ToolProficiencies = {
 	navigatorsTools: boolean;
 	thievesTools: boolean;
 	vehicles: boolean;
+	lightArmour: boolean;
+	heavyArmour: boolean;
+	simpleRanged: boolean;
+	simpleMelee: boolean;
+	martialRanged: boolean;
+	martialMelee: boolean;
+	club: boolean;
+	dagger: boolean;
+	greatclub: boolean;
+	handaxe: boolean;
+	javelin: boolean;
+	lightHammer: boolean;
+	mace: boolean;
+	quarterstaff: boolean;
+	sickle: boolean;
+	spear: boolean;
+	lightCrossbow: boolean;
+	dart: boolean;
+	shortbow: boolean;
+	sling: boolean;
+	battleaxe: boolean;
+	flail: boolean;
+	glaive: boolean;
+	greataxe: boolean;
+	greatsword: boolean;
+	halberd: boolean;
+	lance: boolean;
+	longsword: boolean;
+	maul: boolean;
+	morningstart: boolean;
+	pike: boolean;
+	rapier: boolean;
+	scimitar: boolean;
+	shortsword: boolean;
+	trident: boolean;
+	warPick: boolean;
+	warhammer: boolean;
+	whip: boolean;
+	blowgun: boolean;
+	heavyCrossbow: boolean;
+	handCrossbow: boolean;
+	longbow: boolean;
+	net: boolean;
 }
 
 export type Languages = {
@@ -159,7 +203,7 @@ export type Languages = {
 	Orcish: boolean;
 	Abyssal: boolean;
 	Celestial: boolean;
-	Deep speech: boolean;
+	Deep_speech: boolean;
 	Draconic: boolean;
 	Infernal: boolean;
 	Primordial: boolean;
@@ -194,35 +238,79 @@ export type Class = 'Rouge'
 export type Archetype =
 	'Theif'
 	| 'Assasin'
+	| 'None'
+
+export type ClassSpecificStats ={
+	SneakAttackd6s:number;
+}
 
 export interface Character {
 	proficiencies: Proficiency,
 	expertise: Expertise,
-	baseStats: baseStats,
-	deathSaves: DeathSaves,
-	permanantStats: permanantStats,
+	baseStats: BaseStats,
+	permanantStats: PermanantStats,
 	toolProficiencies: ToolProficiencies,
 	languages: Languages,
 	ephemerialStats: EphemerialStats,
+	classSpecificStats: ClassSpecificStats,
 }
 
 //sometimes, there will be no choice associated with aquiring a trait, like when aquiring many class features. Other times, there will be several, such as which proficiencies to take, and what stats to increase.
 export interface Feature {
+	//short name
 	name: string,
+	//long description
 	description: string,
-	onGainFeature: ()=>void
+	onGainFeature(character: Character):Character
+}
+
+export interface StatsFromRoll{
+	//short name
+	name: string,
+	//long description
+	description: string,
+	//what to ask the player to do or input when feature is gained
+	prompt: string,
+	//what was input
+	roll: number,
+	// constructor(roll: number),
+	onGainFeature(character: Character):Character
+}
+
+export interface GainExpertise {
+	//short name
+	name: string,
+	//long description
+	description: string,
+	firstExpertise: skillsEnum,
+	secondExpertise: skillsEnum,
+	// constructor(firstExpertise: skillsEnum, secondExpertise: skillsEnum),
+	onGainFeature(character: Character):Character
 }
 
 export interface InitalProficiencies {
-	firstProficiency: skillsEnum,
-	secondProficiency: skillsEnum,
-	thirdProficiency: skillsEnum,
-	fourthProficiency: skillsEnum
-	gainInitalProficiencies: (firstProficiency: skillsEnum, secondProficiency: skillsEnum, thirdProficiency: skillsEnum, fourthProficiency: skillsEnum)=>void
+	//short name
+	name: string,
+	//long description
+	description: string,
+	proficienciesGained: skillsEnum[]
+	// constructor(firstProficiency: skillsEnum, secondProficiency: skillsEnum, thirdProficiency: skillsEnum, fourthProficiency: skillsEnum),
+	onGainFeature(character: Character):Character
 }
 
-export interface gainAbilityIncrease {
+export interface AbilityIncrease {
+	//short name
+	name: string,
+	//long description
+	description: string,
 	firstStat: statsEnum,
 	secondStat: statsEnum
-	gainAbilityIncrease: (firstStat: statsEnum, secondStat: statsEnum)=>void
+	// constructor(firstStat: statsEnum, secondStat: statsEnum),
+	onGainFeature(character: Character):Character
 }
+export type levelUps=
+	Feature 
+	| GainExpertise 
+	| InitalProficiencies 
+	| AbilityIncrease 
+	| StatsFromRoll
