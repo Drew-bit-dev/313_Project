@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StatsService } from 'src/app/stats.service';
+import * as types from 'src/app/types';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-death-saves',
@@ -8,29 +11,33 @@ import { Component, OnInit } from '@angular/core';
 export class DeathSavesComponent implements OnInit {
 
   constructor() { }
+  stats = new StatsService();
 
   ngOnInit(): void {
   }
 
-  sCount: number = 0;
-  fCount: number = 0;
-  dead: string = "u r dead. not big soup rise";
-
-  reset(): void {
-    this.sCount = 0;
-    this.fCount = 0;
-  }
-
-  addsCount(): void {
-    if(this.sCount < 3){
-      this.sCount += 1;
+  rollDeathSave(){
+		let x = Math.random();
+    if (x > 0.95) {
+			this.stats.character.ephemerialStats.deathSaves.succsesses = 3;
+      this.stats.setCurrentHP(this.stats.character.ephemerialStats.currentHP + 1);
+		}
+    else if (x > 0.45){
+      this.stats.incrementDeathSuccsesses();
     }
-  }
-
-  addfCount(): void {
-    if(this.fCount < 3){
-      this.fCount += 1;
+    else if (x > 0.05){
+			this.stats.incrementDeathFailures();
+		}
+    else{
+      this.stats.character.ephemerialStats.deathSaves.failures = 3;
     }
-  }
+		if (this.stats.character.ephemerialStats.deathSaves.succsesses===3){
+			//trigger a function to show a message
+			this.stats.resetDeathSaves();
+		}
+    else{
+			//trigger failure state
+		}
 
+}
 }

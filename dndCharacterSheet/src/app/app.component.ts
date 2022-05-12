@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {StatsService} from './stats.service';
-import * as types from './types'
+import * as types from './types';
 
 @Component({
   selector: 'app-root',
