@@ -7,6 +7,6 @@
     <title>Character Bio</title>
 </head>
 <body *ngIf="character">
-    <textarea name="Character Bio" id="" cols="100" rows="100">character.character.permanantStats.Bio</textarea>
+    <textarea name="Character Bio" id="" cols="100" rows="100" [(ngModel)]="character.character.permanantStats.bio"></textarea>
 </body>
 </html>
